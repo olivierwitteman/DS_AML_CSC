@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
-
+import time
+import numpy as np
 
 class CSC:
     def __init__(self):
@@ -20,3 +21,16 @@ class CSC:
         bow = vectorizer.fit_transform(text)
         feature_names = vectorizer.get_feature_names()
         return bow #, feature_names
+
+    def random_predictions(self, testset):
+        options = ['A', 'B', 'C']
+        answer, sentence = [], []
+        for i in range(len(testset)):
+            answer.append(options[int(np.random.rand() * 3)])
+        return sentence, answer
+
+    def export_predictions(self, sentence, answer, path='Data'):
+        with open('{!s}/{!s}.csv'.format(path, time.time()), 'a') as a:
+            a.write('id,answer')
+            for i in range(len(sentence)):
+                a.write('sentence_{!s},{!s}'.format(sentence, answer))
