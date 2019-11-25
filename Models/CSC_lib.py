@@ -5,6 +5,7 @@ import numpy as np
 
 class CSC:
     def __init__(self):
+        self.PreProcess = PreProcess()
         pass
 
     def load_sets(self, path='Data'):
@@ -14,6 +15,7 @@ class CSC:
         return train_data, train_answers, test_data
 
     def return_sentence(self, df, sentence_id=1):
+        self.PreProcess.hello()
         return df[df['id'] == 'sentence_{!s}'.format(sentence_id)]
 
     def bag_of_words(self, text):
@@ -34,3 +36,11 @@ class CSC:
             a.write('id,answer')
             for i in range(len(sentence)):
                 a.write('sentence_{!s},{!s}'.format(sentence, answer))
+
+
+class PreProcess:
+    def __init__(self):
+        pass 
+
+    def hello(self):
+        print("hello world:)")
