@@ -3,10 +3,10 @@ from sklearn.feature_extraction.text import CountVectorizer
 import time
 import numpy as np
 
+
 class CSC:
     def __init__(self):
         self.PreProcess = PreProcess()
-        pass
 
     def load_sets(self, path='Data'):
         test_data = pd.read_csv('{!s}/test_data.csv'.format(path))
@@ -45,5 +45,3 @@ class PreProcess:
 
     def hello(self):
         print("hello world:)")
-
-               
