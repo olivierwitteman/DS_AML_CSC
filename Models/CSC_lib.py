@@ -26,11 +26,12 @@ class CSC:
         options = ['A', 'B', 'C']
         answer, sentence = [], []
         for i in range(len(testset)):
+            sentence.append(str(i+1))
             answer.append(options[int(np.random.rand() * 3)])
         return sentence, answer
 
     def export_predictions(self, sentence, answer, path='Data'):
         with open('{!s}/{!s}.csv'.format(path, time.time()), 'a') as a:
-            a.write('id,answer')
+            a.write('id,answer\n')
             for i in range(len(sentence)):
-                a.write('sentence_{!s},{!s}'.format(sentence, answer))
+                a.write('sentence_{!s},{!s}\n'.format(sentence[i], answer[i]))

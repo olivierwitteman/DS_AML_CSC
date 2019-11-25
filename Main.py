@@ -10,4 +10,5 @@ print(X_train.keys())
 
 # print(CSC.bag_of_words(['jop is een een een mooie jongen', 'gideon ook is']))
 
-print(CSC.random_predictions(X_test))
+sentence, answer = CSC.random_predictions(X_test)
+CSC.export_predictions(sentence, answer)
